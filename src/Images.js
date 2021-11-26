@@ -6,6 +6,7 @@ const Images = () => {
     const dispatch = useDispatch();
     const images = useSelector((state) => state.images);
     const selectedImage = useSelector((state) => state.selectedImage);
+    const isLoading = useSelector((state) => state.loading);
 
     useEffect(() => {
         if(!images.length) {
@@ -24,6 +25,7 @@ const Images = () => {
     return (
         <div className="app-container">
             <div className="images-panel">
+                {isLoading && <p>Loading images...</p>}
                 {images.map((image, i) => <img key={i} onClick={() => handleClick(image)} alt={image.author} src={`${image.download_url}.jpg`} />)}
             </div>
             <div className="show-image">
