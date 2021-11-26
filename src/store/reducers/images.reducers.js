@@ -15,6 +15,9 @@ const imagesReducer = (state = initState, action) => {
         case 'images/select': {
             return { ...state, selectedImage: action.payload }
         }
+        case 'images/update': {
+            return { ...state, images: action.payload }
+        }
         default:
             return state
     }
